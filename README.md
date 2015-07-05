@@ -1,52 +1,31 @@
-Yii 2 Advanced Project Template
-===============================
+	To run the application:
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+1- run composer install to fetch all required dependencies.
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+2- import api.sql 
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+3- update /common/config/main-local.php according to your db credentials
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+4- test the api endpoints through any restful client, these are the supported endpoints:
 
-DIRECTORY STRUCTURE
--------------------
+•	GET /airport/api/web/v1/airports: list all airports
 
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-tests                    contains various tests for the advanced application
-    codeception/         contains tests developed with Codeception PHP Testing Framework
-```
+•	POST /airport/api/web/v1/airports: create a new airport
+
+•	PUT /airport/api/web/v1/airports/dxb: update the airport dxb
+
+•	DELETE /airport/api/web/v1/airports/dxb: delete the airport dxb 
+
+•	GET /airport/api/web/v1/airports/dxb: return the details of the airport dxb
+
+
+5- Authentication and authorization:
+
+  - as we are using http basic auth, so access_tokens are used as usernames, and password is left empty.
+  
+•	Admin, has full access: tok-admin
+
+•	User, has access for (index, view, create, update): tok-user
+
+•	Guest, has access for (index, view): tok-guest
+
